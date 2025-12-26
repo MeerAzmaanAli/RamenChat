@@ -35,3 +35,10 @@ body{
   background-color: #000000a3;
   color: white;
 }
+@media (max-width: 1024px) {
+  .container{ width: 100vw; height: 100vh; border-radius: 0; }
+}
+@media (max-width: 768px) {
+  .container{ width: 100vw; height: 100vh; border-radius: 0; }
+  .container.has-chat .list{ display: none; }
+}

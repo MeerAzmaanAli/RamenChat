@@ -86,3 +86,10 @@
 
     
 }
+@media (max-width: 768px) {
+  .list .sap .logout{
+    width: 100%;
+    padding: 10px 12px;
+    margin-left: 0;
+  }
+}

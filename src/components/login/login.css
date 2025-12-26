@@ -72,3 +72,10 @@
     }
 
 }
+@media (max-width: 768px) {
+  .login{ gap: 24px; flex-direction: column; }
+  .login .item form input{ width: 100%; }
+  .login .item form button{ width: 100%; }
+  .login .item img{ width: 80px; height: 80px; }
+  .login .sap{ display: none; }
+}

@@ -76,17 +76,30 @@ const Detail = ()=> {
                         <img src="./arrowDown.png" alt="" />
                     </div>
                     <div className="photos">
-                        {chat?.message?.map((messageimg)=>(
-                            <div className="photoList" key={chatId}>{messageimg.img && (
-                                <div className="photoItem" key={messageimg.createAt} >
-                                    <div className="photoDetail"> 
-                                        <img src={messageimg.img} onClick={() => openImageInNewTab(messageimg.img)} alt="" />
-                                        <span onClick={() => openImageInNewTab(messageimg.img)}>{format(messageimg.createAt.toDate())}</span>
-                                    </div>
-                                    <img src="./download.png" alt="" className="icons" onClick={() =>openImageInNewTab(messageimg.img)}/>
-                                </div>)}
-                            </div>))}  
-                    </div>
+                        <div className="photoList">
+                            {chat?.message?.filter(m => m.img).map((m, idx) => {
+                            const ts = m?.createAt;
+                            const key =
+                                typeof ts?.toMillis === "function" ? ts.toMillis() : `${idx}-${m.img}`;
+                            return (
+                                <div className="photoItem" key={key}>
+                                <div className="photoDetail">
+                                    <img src={m.img} onClick={() => openImageInNewTab(m.img)} alt="" />
+                                    <span onClick={() => openImageInNewTab(m.img)}>
+                                    {typeof ts?.toDate === "function" ? format(ts.toDate()) : ""}
+                                    </span>
+                                </div>
+                                <img
+                                    src="./download.png"
+                                    alt=""
+                                    className="icons"
+                                    onClick={() => openImageInNewTab(m.img)}
+                                />
+                                </div>
+                            );
+                            })}
+                        </div>
+                        </div>
                 </div>
                 <div className="option">
                     <div className="title">

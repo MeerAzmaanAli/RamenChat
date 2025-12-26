@@ -23,6 +23,14 @@ const Chat = ()=> {
     const endRef = useRef(null);
     const {chatId,user,isCurrentUserBlocked, isReceiverBlocked} = useChatStore();
     const {currentUser}=useUserStore();
+    const handleBack = () => {
+        useChatStore.setState({
+            chatId: null,
+            user: null,
+            isCurrentUserBlocked: false,
+            isReceiverBlocked: false,
+        });
+        };
 
     const openImageInNewTab = (url) => {
         window.open(url, '_blank');
@@ -121,6 +129,7 @@ const Chat = ()=> {
         
         <div className='chat'>
             <div className="top">
+                  <button className="backBtn" onClick={handleBack}>Back</button>
                 <div className="user">
                     <img src={user?.avatar||"./avatar.png"} alt="" />
                     <div className="text">

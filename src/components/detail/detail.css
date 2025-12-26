@@ -107,3 +107,8 @@
     
     
 }
+@media (max-width: 768px) {
+  .detail .user img{ width: 80px; height: 80px; }
+  .detail .info .option .photos .photoList .photoItem{ gap: 12px; }
+  .detail .info .option .photos .photoList .photoItem .icons{ margin-left: auto; }
+}

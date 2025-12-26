@@ -31,7 +31,7 @@ const App = () => {
 
 
   return (
-    <div className='container'>
+    <div className={"container" + (chatId ? " has-chat" : "")}>
       
         {currentUser ? (
           <> 
