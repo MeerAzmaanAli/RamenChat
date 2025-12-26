@@ -9,7 +9,6 @@ lerna-debug.log*
 
 # Dependencies
 node_modules
-dist
 dist-ssr
 *.local
 
@@ -32,6 +31,8 @@ dist-ssr
 .env.production.local
 
 # Build output
+# Note: For most hosting platforms (Vercel, Netlify, Firebase Hosting), dist/ is built from source
+# If you need to commit dist/ for GitHub Pages or manual hosting, comment out the next line
 build
 dist
 
