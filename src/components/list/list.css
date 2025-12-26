@@ -1,0 +1,25 @@
+.list{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(112, 112, 112, 0.418);
+    padding: 10px;
+   
+    .sap{
+        width: 100%;
+        border-top: 1px solid black;
+        padding: 7px;
+        .logout{
+            padding: 3px 150px;
+            margin-left: 10px;
+            align-items: center;
+            border-radius: 10px;
+            border: 1px solid black;
+            background-color: #004e66e3;
+            color: white;
+            &:hover{
+                background-color: #004e66;
+            }
+        }
+    }
+}

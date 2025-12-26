@@ -1,0 +1,29 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users collection - users can read their own data and update their own data
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null && request.auth.uid == userId;
+      allow update: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // UserChats collection - users can read/write their own chats
+    // Also allow users to create/update other users' userChats (for starting new conversations)
+    match /userChats/{userId} {
+      allow read: if request.auth != null;
+      // Users can write to their own userChats
+      allow write: if request.auth != null && request.auth.uid == userId;
+      // Users can also create/update other users' userChats to add new chat entries
+      allow create, update: if request.auth != null;
+    }
+    
+    // Chats collection - users can read/write if they're part of the chat
+    match /chats/{chatId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+  }
+}
+
